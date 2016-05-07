@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LeoCp/register#readme",
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.4"
   }
 }
