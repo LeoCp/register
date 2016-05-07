@@ -1,0 +1,22 @@
+{
+  "name": "register",
+  "version": "1.0.0",
+  "description": "Cadastro de pessoas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoCp/register.git"
+  },
+  "author": "LeoCp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoCp/register/issues"
+  },
+  "homepage": "https://github.com/LeoCp/register#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
