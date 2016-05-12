@@ -1,11 +1,10 @@
-<div class="container">
+<div class="container"  ng-controller="cadastroCtrl">
   <div class="jumbotron">
     <h1>Cadastro</h1>
     <hr>
-    Nome:<input type="text" class="form-control"><br>
-    Cpf:<input type="text" class="form-control"><br>
-    Idade:<input type="text" class="form-control">
-
-    <br><button type="button" class="btn btn-success">Cadastrar</button>
+    Nome:<input type="text" class="form-control" ng-model="pessoa.nome"><br>
+    Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf"><br>
+    Idade:<input type="text" class="form-control" ng-model="pessoa.idade">
+    <br><button type="button" class="btn btn-success" ng-click="addPessoa(pessoa)">Cadastrar</button>
   </div>
 </div>

@@ -1,4 +1,12 @@
 angular.module("app")
-.controller("homeCtrl",function($scope) {})
-.controller("cadastroCtrl",function (argument) {});
-.controller("pessoasCtrl",function (argument) {});
+  .controller("homeCtrl",($scope) => {
+
+  })
+  .controller("cadastroCtrl",($scope) => {
+    $scope.addPessoa = (pessoa) =>{
+      console.log(pessoa);
+    };
+  })
+  .controller("pessoasCtrl",($scope) => {
+
+  });

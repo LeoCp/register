@@ -1,6 +1,5 @@
 angular.module("app",['ngRoute'])
-
-  .config( function ($routeProvider, $locationProvider) {
+  .config( ($routeProvider) => {
 
         $routeProvider
 
@@ -13,6 +12,7 @@ angular.module("app",['ngRoute'])
             templateUrl: '/view/cadastro.html',
             controller: 'cadastroCtrl'
         })
+
         .when('/pessoas', {
             templateUrl: '/view/pessoas.html',
             controller: 'pessoasCtrl'
