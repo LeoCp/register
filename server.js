@@ -32,7 +32,7 @@ app.post('/addPessoa', (req,res) => {
   });
 
   mongoose.connection.close(function () {
-    console.log('Mongoose connection disconnected');
+    console.log('Mongoose desconectado!');
   });
 
 });
@@ -47,7 +47,7 @@ app.get('/showPessoas',(req,res) => {
       res.json(data);
     }
     mongoose.connection.close(function () {
-      console.log('Mongoose desconectado');
+      console.log('Mongoose desconectado!');
     });
 
   });
