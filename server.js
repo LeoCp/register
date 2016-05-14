@@ -69,4 +69,4 @@ app.put('/pessoas/:id', (req,res) => {
 
 });
 
-app.listen(3000, () => console.log("Rodando..."));
+app.listen(process.env.PORT || 5000);
