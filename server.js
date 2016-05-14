@@ -22,10 +22,10 @@ app.get("/", (req, res) => {
 app.post('/addPessoa', (req,res) => {
   pessoaModel.findOne({nome:req.body.nome}, (err,data) => {
     if (err) {
-      return console.error(err);
+      res.json("ERROR: " + err);
     }else{
       if(data){
-        console.log("Pessoa ja cadastrada!");
+        res.json({a:false})
       }else{
         const dataModel = {
           nome: req.body.nome,
@@ -33,6 +33,7 @@ app.post('/addPessoa', (req,res) => {
           idade: req.body.idade
         },pessoa = new pessoaModel(dataModel);
         pessoa.save(callback);
+        res.json({a:true})
       }
     }
   });

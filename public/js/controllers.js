@@ -1,9 +1,28 @@
 angular.module("app")
   .controller("homeCtrl",function ($scope){})
   .controller("cadastroCtrl", function ($scope,$http){
+    
 
       $scope.addPessoa = (pessoa) => {
-        $http.post('/addPessoa', pessoa);
+        $http.post('/addPessoa', pessoa)
+
+        .success((data) => {
+          if(data.a == true) {
+            $scope.stiloAlert = "alert alert-success";
+            $scope.jAlerta = true;
+            $scope.menssagemAlert = pessoa.nome+ " foi cadasrado com sucesso!";
+          }else{
+            $scope.stiloAlert = "alert alert-danger";
+            $scope.jAlerta = true;
+            $scope.menssagemAlert = pessoa.nome+ " ja esta cadasrado!";
+
+          }
+
+        })
+        .error((data) => {
+          alert(data);
+        });
+
         $scope.pessoa = "";
       };
 

@@ -2,29 +2,16 @@
   <div class="jumbotron">
     <h1>Cadastro</h1>
     <hr>
+    <div ng-class="stiloAlert" ng-show="jAlerta">
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{menssagemAlert}}</strong>
+  </div>
     <form class="" name="pessoaForm" method="post">
       Nome:<input type="text" class="form-control" ng-model="pessoa.nome" ng-required="true"><br>
       Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf" ng-required="true"><br>
       Idade:<input type="text" class="form-control" ng-model="pessoa.idade" ng-required="true">
-      <br><button type="button" class="btn btn-success" ng-click="addPessoa(pessoa)" ng-disabled="pessoaForm.$invalid" data-toggle="modal" data-target=".bd-example-modal-sm">Cadastrar</button>
+      <br><button ng-click="addPessoa(pessoa)"  ng-disabled="pessoaForm.$invalid"type="button" class="btn btn-success"   data-toggle="modal" data-target=".bs-example-modal-sm">Cadastrar</button>
     </form>
   </div>
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Mensagem</h4>
-      </div>
-      <div class="modal-body">
-        <p>A pessoa foi cadastrada!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-clic>Ok</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div>
-</div>
+
 </div>
