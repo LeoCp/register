@@ -2,8 +2,7 @@ const express = require('express')
 ,bodyParser = require("body-parser")
 ,mongoose = require("mongoose")
 ,Pessoa = require('./models/pessoa')
-,dbURI = 'mongodb://localhost/dbPessoas'
-,app = express();
+,app = express();require("./models/config");
 
 app.use('/static',  express.static(__dirname + '/node_modules'));
 app.use('/js',  express.static(__dirname + '/public/js'));
@@ -17,35 +16,54 @@ app.get("/", (req, res) => {
 
 app.post('/addPessoa', (req,res) => {
 
-  mongoose.connect(dbURI);
-  var pessoa = new Pessoa();
-  pessoa.nome = req.body.nome;
-  pessoa.cpf = req.body.cpf;
-  pessoa.idade = req.body.idade;
-  pessoa.save((err, pessoa) => {
+  Pessoa.findOne({nome:req.body.nome}, (err,data) => {
     if (err) return console.error(err);
+    if(data){
+      console.log("Pessoa ja cadastrada!");
+    }else{
+
+      var pessoa = new Pessoa();
+      pessoa.nome = req.body.nome;
+      pessoa.cpf = req.body.cpf;
+      pessoa.idade = req.body.idade;
+      pessoa.save((err, pessoa) => {
+        if (err) return console.error(err);
+      });
+
+    }
   });
-  
-  mongoose.connection.close( () => {
-    console.log('Mongoose desconectado!');
-  });
+
 
 });
 
 app.get('/showPessoas',(req,res) => {
-  
-  mongoose.connect(dbURI);
-  
+
   Pessoa.find({}, (err,data) => {
     if (err){
       console.error(err);
     }else{
       res.json(data);
     }
-    mongoose.connection.close( () => {
-      console.log('Mongoose desconectado!');
-    });
+
   });
+
+});
+
+app.put('/pessoas/:id', (req,res) => {
+  var id = req.params.id;
+  var query = {
+    nome: req.body.nome,
+    cpf: req.body.cpf,
+    idade: req.body.idade
+  };
+
+  Pessoa.update(id, {$set:query},
+    (err,doc) => {
+      if (err){
+        console.log(err);
+      }
+    }
+  );
 
 });
 

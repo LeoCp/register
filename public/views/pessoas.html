@@ -18,7 +18,7 @@
       <td>{{pessoa.nome}}</td>
       <td>{{pessoa.cpf}}</td>
       <td>{{pessoa.idade}}</td>
-      <td><button type="button" class="btn btn-success btn-sm"><i class="fa fa-cog"></i></button></td>
+    <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="bAlterar(pessoa)"><i class="fa fa-cog"></i></button></td>
     </tr>
 
   </tbody>
@@ -26,4 +26,23 @@
 
 
   </div>
+  <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Alterar pessoa</h4>
+      </div>
+      <div class="modal-body">
+        Nome:<input type="text" class="form-control" ng-model="p.nome"><br>
+        Cpf:<input type="text" class="form-control" ng-model="p.cpf"><br>
+        Idade:<input type="text" class="form-control" ng-model="p.idade">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="alterarPessoa(p)" >Alterar</button>
+      </div>
+    </div><!-- /.modal-content -->
 </div>
