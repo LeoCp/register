@@ -14,16 +14,26 @@ angular.module("app")
       $scope.pessoas = res.data;
     });
 
-    $scope.bAlterar = (pessoa) =>{
-      $scope.p = pessoa;
+    $scope.bAlterar = (id) =>{
+      console.log(id);
+      $http.get('/pessoas/' + id ).success(function(response) {
+
+      });
     }
 
     $scope.alterarPessoa = () => {
       console.log($scope.p._id);
-      $http.put('/pessoas/' + $scope.p.nome, $scope.p).success(function(response) {
+      $http.put('/pessoas' + $scope.p._id, $scope.p).success(function(response) {
         console.log("foi");
       });
     };
+
+    $scope.remove = (id) => {
+      console.log(id);
+      $http.delete("/pessoas/" + id).success(function (res) {
+
+      });
+    }
 
 
 

@@ -1,11 +1,9 @@
 const express = require('express')
 ,bodyParser = require("body-parser")
-,favicon = require('serve-favicon')
 ,mongoose = require("mongoose")
-,Pessoa = require('./models/pessoa')
+,pessoaModel = require('./models/pessoa')
 ,app = express();require("./models/config");
 
-app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use('/static',  express.static(__dirname + '/node_modules'));
 app.use('/js',  express.static(__dirname + '/public/js'));
 app.use('/view',  express.static(__dirname + '/public/views'));
@@ -18,18 +16,21 @@ app.get("/", (req, res) => {
 
 app.post('/addPessoa', (req,res) => {
 
-  Pessoa.findOne({nome:req.body.nome}, (err,data) => {
+  pessoaModel.findOne({nome:req.body.nome}, (err,data) => {
     if (err) return console.error(err);
+
     if(data){
       console.log("Pessoa ja cadastrada!");
     }else{
 
-      var pessoa = new Pessoa();
-      pessoa.nome = req.body.nome;
-      pessoa.cpf = req.body.cpf;
-      pessoa.idade = req.body.idade;
+      const dataModel = {
+        nome: req.body.nome,
+        cpf: req.body.cpf,
+        idade: req.body.idade
+      },pessoa = new pessoaModel(dataModel);
+
       pessoa.save((err, pessoa) => {
-        if (err) return console.error(err);
+        if (err) return console.error('ERRPO:',err);
       });
 
     }
@@ -40,7 +41,7 @@ app.post('/addPessoa', (req,res) => {
 
 app.get('/showPessoas',(req,res) => {
 
-  Pessoa.find({}, (err,data) => {
+  pessoaModel.find({}, (err,data) => {
     if (err){
       console.error(err);
     }else{
@@ -59,7 +60,7 @@ app.put('/pessoas/:id', (req,res) => {
     idade: req.body.idade
   };
 
-  Pessoa.update(id, {$set:query},
+  pessoaModel.update(id, {$set:query},
     (err,doc) => {
       if (err){
         console.log(err);
@@ -69,4 +70,4 @@ app.put('/pessoas/:id', (req,res) => {
 
 });
 
-app.listen(process.env.PORT || 5000);
+app.listen(3000, () => console.log("Rodando..."));

@@ -1,9 +1,7 @@
-var mongoose = require('mongoose')
-,Schema = mongoose.Schema
-,Pessoa = new Schema({
-    nome: String,
-    cpf: Number,
-    idade: Number
-});
-
-module.exports = mongoose.model('pessoa', Pessoa);
+const mongoose = require('mongoose')
+,_schema = {
+  nome: String,
+  cpf: Number,
+  idade: Number
+},pessoaSchema = new mongoose.Schema (_schema);
+module.exports = mongoose.model('pessoa',pessoaSchema);
