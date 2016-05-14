@@ -4,8 +4,8 @@
   "description": "Cadastro de pessoas",
   "main": "server.js",
   "scripts": {
-   "start":"node server.js",
-   "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.4",
     "mongojs": "^2.4.0",
-    "mongoose": "^4.4.16"
+    "mongoose": "^4.4.16",
+    "serve-favicon": "^2.3.0"
   }
 }

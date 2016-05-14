@@ -1,9 +1,11 @@
 const express = require('express')
 ,bodyParser = require("body-parser")
+,favicon = require('serve-favicon')
 ,mongoose = require("mongoose")
 ,Pessoa = require('./models/pessoa')
 ,app = express();require("./models/config");
 
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use('/static',  express.static(__dirname + '/node_modules'));
 app.use('/js',  express.static(__dirname + '/public/js'));
 app.use('/view',  express.static(__dirname + '/public/views'));
