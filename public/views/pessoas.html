@@ -18,7 +18,7 @@
       <td>{{pessoa.nome}}</td>
       <td>{{pessoa.cpf}}</td>
       <td>{{pessoa.idade}}</td>
-    <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="bAlterar(pessoa._id)"><i class="fa fa-cog"></i></button></td>
+    <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="bAlterar(pessoa)"><i class="fa fa-cog"></i></button></td>
     </tr>
 
   </tbody>
@@ -36,14 +36,14 @@
         <h4 class="modal-title">Alterar pessoa</h4>
       </div>
       <div class="modal-body">
-        Nome:<input type="text" class="form-control" ><br>
-        Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf"><br>
-        Idade:<input type="text" class="form-control" ng-model="pessoa.idade">
+        Nome:<input type="text" class="form-control"ng-model="p.nome" ><br>
+        Cpf:<input type="text" class="form-control" ng-model="p.cpf"><br>
+        Idade:<input type="text" class="form-control" ng-model="p.idade">
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="remove(p._id)" >Deletar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editar(p._id)" >Alterar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="removePessoa(p)" >Deletar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="alterarPessoa(p)" >Alterar</button>
       </div>
     </div><!-- /.modal-content -->
 </div>

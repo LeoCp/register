@@ -52,22 +52,30 @@ app.get('/showPessoas',(req,res) => {
 
 });
 
-app.put('/pessoas/:id', (req,res) => {
-  var id = req.params.id;
-  var query = {
+app.put('/alterarPessoa/:id', (req,res) => {
+  const query = {_id:req.params.id}
+  ,mod = {
     nome: req.body.nome,
     cpf: req.body.cpf,
     idade: req.body.idade
   };
 
-  pessoaModel.update(id, {$set:query},
-    (err,doc) => {
-      if (err){
-        console.log(err);
-      }
-    }
-  );
+  pessoaModel.update(query, mod, function (err,doc) {
+      if (err) console.log(err);
+  });
 
 });
+
+app.delete('/removePessoa/:id',(req,res) => {
+  const query = {_id:req.params.id};
+  console.log(query);
+
+  pessoaModel.remove(query,function (err,doc) {
+    if (err) console.log(err);
+  });
+
+});
+
+
 
 app.listen(3000, () => console.log("Rodando..."));
