@@ -1,7 +1,7 @@
 angular.module("app")
   .controller("homeCtrl",function ($scope){})
   .controller("cadastroCtrl", function ($scope,$http){
-    
+
 
       $scope.addPessoa = (pessoa) => {
         $http.post('/addPessoa', pessoa)
@@ -15,7 +15,6 @@ angular.module("app")
             $scope.stiloAlert = "alert alert-danger";
             $scope.jAlerta = true;
             $scope.menssagemAlert = pessoa.nome+ " ja esta cadasrado!";
-
           }
 
         })
