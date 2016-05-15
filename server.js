@@ -6,8 +6,7 @@ const express = require('express')
 ,app = express();require("./models/config");
 
 app.use('/static',  express.static(__dirname + '/node_modules'));
-app.use('/js',  express.static(__dirname + '/public/js'));
-app.use('/view',  express.static(__dirname + '/public/views'));
+app.use('/public',  express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

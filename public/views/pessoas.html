@@ -23,8 +23,6 @@
 
   </tbody>
 </table>
-
-
   </div>
   <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -36,14 +34,13 @@
         <h4 class="modal-title">Alterar pessoa</h4>
       </div>
       <div class="modal-body">
-        Nome:<input type="text" class="form-control"ng-model="p.nome" ><br>
+        Nome:<input type="text" class="form-control"ng-model="p.nome"><br>
         Cpf:<input type="text" class="form-control" ng-model="p.cpf"><br>
         Idade:<input type="text" class="form-control" ng-model="p.idade">
-
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="removePessoa(p)" >Deletar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="alterarPessoa(p)" >Alterar</button>
       </div>
-    </div><!-- /.modal-content -->
+    </div>
 </div>

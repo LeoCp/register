@@ -1,26 +1,19 @@
-
-var app = angular.module("app",['ngRoute']);
-  app.config( $routeProvider => {
-
-        $routeProvider
-
-        .when('/', {
-          templateUrl: '/view/home.html',
-          controller: 'homeCtrl'
-        })
-
-        .when('/cadastro', {
-            templateUrl: '/view/cadastro.html',
-            controller: 'cadastroCtrl'
-        })
-
-        .when('/pessoas', {
-            templateUrl: '/view/pessoas.html',
-            controller: 'pessoasCtrl'
-        })
-
-        .otherwise({
-            redirectTo: '/'
-        });
-
-  });
+angular.module("app",['ngRoute'])
+  .config($routeProvider => {
+    $routeProvider
+      .when('/', {
+        templateUrl: '/public/views/home.html',
+        controller: 'homeCtrl'
+      })
+      .when('/cadastro', {
+        templateUrl: '/public/views/cadastro.html',
+        controller: 'cadastroCtrl'
+      })
+      .when('/pessoas', {
+        templateUrl: '/public/views/pessoas.html',
+        controller: 'pessoasCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+    });
