@@ -2,7 +2,7 @@ const express = require('express')
 ,bodyParser = require("body-parser")
 ,mongoose = require("mongoose")
 ,pessoaModel = require('./models/pessoa')
-,port = process.env.PORT || 5000
+,port = process.env.PORT || 3000
 ,app = express();require("./models/config");
 
 app.use('/static',  express.static(__dirname + '/node_modules'));

@@ -8,9 +8,9 @@
   </div>
     <form class="" name="pessoaForm" method="post">
       Nome:<input type="text" class="form-control" ng-model="pessoa.nome" ng-required="true"><br>
-      Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf" ng-required="true"><br>
+      Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf"  ng-required="true" ui-cpf><br>
       Idade:<input type="text" class="form-control" ng-model="pessoa.idade" ng-required="true">
-      <br><button ng-click="addPessoa(pessoa)"  ng-disabled="pessoaForm.$invalid"type="button" class="btn btn-success"   data-toggle="modal" data-target=".bs-example-modal-sm">Cadastrar</button>
+      <br><button ng-click="addPessoa(pessoa)"  ng-disabled="pessoaForm.$invalid"type="button" class="btn btn-success"  data-toggle="modal" data-target=".bs-example-modal-sm">Cadastrar</button>
     </form>
   </div>
 
