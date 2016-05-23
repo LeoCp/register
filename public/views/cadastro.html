@@ -1,11 +1,13 @@
+
 <div class="container">
+
   <div class="jumbotron">
     <h1>Cadastro</h1>
     <hr>
-    <div ng-class="stiloAlert" ng-show="jAlerta">
-    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>{{menssagemAlert}}</strong>
-  </div>
+    <div  ng-class="stiloAlert" ng-show="jAlerta">
+      <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>{{menssagemAlert}}</strong>
+    </div>
     <form class="" name="pessoaForm" method="post">
       Nome:<input type="text" class="form-control" ng-model="pessoa.nome" ng-required="true"><br>
       Cpf:<input type="text" class="form-control" ng-model="pessoa.cpf"  ng-required="true" ui-cpf><br>
