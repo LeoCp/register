@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pessoa in pessoas | filter: criterioDeBusca" >
+    <tr ng-repeat="pessoa in pessoas | filter: criterioDeBusca">
       <th scope="row">{{$index + 1}}</th>
       <td>{{pessoa.nome}}</td>
       <td>{{pessoa.cpf}}</td>
@@ -24,6 +24,8 @@
 
   </tbody>
 </table>
+
+
   </div>
   <div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -36,7 +38,7 @@
       </div>
       <div class="modal-body">
         Nome:<input type="text" class="form-control"ng-model="p.nome"><br>
-        Cpf:<input type="text" class="form-control" ng-model="p.cpf"><br>
+        Cpf:<input type="text" class="form-control" ng-model="p.cpf" ui-cpf><br>
         Idade:<input type="text" class="form-control" ng-model="p.idade">
       </div>
       <div class="modal-footer">
