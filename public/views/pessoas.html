@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <h1>Pessoas </h1>
     <hr>
-    <input type="text" class="form-control" placeholder="Buscar">
+    <input type="text" class="form-control" placeholder="Buscar" ng-model="criterioDeBusca">
     <table class="table table-striped">
   <thead>
     <tr>
@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pessoa in pessoas" >
+    <tr ng-repeat="pessoa in pessoas | filter: criterioDeBusca" >
       <th scope="row">{{$index + 1}}</th>
       <td>{{pessoa.nome}}</td>
       <td>{{pessoa.cpf}}</td>
