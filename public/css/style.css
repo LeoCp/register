@@ -17,3 +17,6 @@
 .ui-alert-menssage{
     color: #AF4341;
 }
+ul.pagination.pagination-sm {
+    float: right;
+}
